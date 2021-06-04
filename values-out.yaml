@@ -1,0 +1,17 @@
+image_vote:
+  repository: dockersamples/examplevotingapp_vote
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "before"
+
+image_result:
+  repository: dockersamples/examplevotingapp_result
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "before"
+
+image_worker:
+  repository: dockersamples/examplevotingapp_worker
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "before"
