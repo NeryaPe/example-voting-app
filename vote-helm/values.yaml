@@ -5,13 +5,13 @@ image_vote:
   tag: "before"
 
 image_result:
-  repository: nginx
+  repository: dockersamples/examplevotingapp_result
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "before"
 
 image_worker:
-  repository: nginx
+  repository: dockersamples/examplevotingapp_worker
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "before"
