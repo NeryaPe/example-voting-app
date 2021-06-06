@@ -8,7 +8,7 @@ pipeline {
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t dockersamples/vote ./vote'
+        sh 'docker build -t neryap/vote:0.3 ./vote'
       }
     }
     stage('Build worker') {
@@ -32,7 +32,7 @@ pipeline {
       }
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/vote'
+          sh 'docker push neryap/vote:0.3'
         }
       }
     }
