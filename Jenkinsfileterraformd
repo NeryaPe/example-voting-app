@@ -1,0 +1,19 @@
+pipeline {
+
+   agent {
+    label 'gcloud'
+  }
+
+ environment {
+    TF_WORKDIR = "${env.WORKSPACE}/learn-terraform-provision-gke-cluster" //Sets the Terraform Workspace
+    TF_IN_AUTOMATION = 'true'
+  }
+
+  stages {
+    stage('Terraform destroy') {
+      steps {
+        sh "terraform -chdir=${env.TF_WORKDIR} destroy -input=false"
+      }
+    }
+
+}
