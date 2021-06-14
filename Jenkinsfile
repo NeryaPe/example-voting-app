@@ -10,7 +10,7 @@ pipeline {
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t neryap/vote:0.3 ./vote'
+        sh 'docker build -t neryap/vote:0.4 ./vote'
       }
     }
     stage('Build worker') {
