@@ -1,11 +1,6 @@
 pipeline {
  agent any
   stages {
-    stage('docker grup') {
-      steps {
-        sh 'usermod -aG docker jenkins'
-      }
-    } 
     stage('Build result') {
       steps {
         sh 'docker build -t dockersamples/result ./result'
