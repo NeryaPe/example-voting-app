@@ -29,12 +29,12 @@ pipeline {
       }
     }
     stage('Push vote image') {
-      when {
+     /* when {
         branch 'master'
-      }
+      }*/
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push neryap/vote:0.3'
+          sh 'docker push neryap/vote:0.4'
         }
       }
     }
