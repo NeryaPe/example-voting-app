@@ -6,15 +6,24 @@ pipeline {
   }
 
 
-    stage('kubectl config') {
+    stage('terraform init') {
+     stage('terraform cd') {
       steps {
-        container('terraform-gcloud'){
-            sh("gcloud auth activate-service-account  --key-file=${env.GOOGLE_APPLICATION_CREDENTIALS}")
-            sh 'gcloud container clusters get-credentials  my-project-1490158303721-gke --project my-project-1490158303721 --region us-central1'
-            sh 'kubectl get nodes'
-            sh 'helm version'
-        }
+        sh 'cd learn-terraform-provision-gke-cluster/'
       }
+     }
+     stage('terraform init') {
+      steps {
+        sh 'terraform init'
+      }
+     }
+
+     stage('terraform init') {
+      steps {
+        sh 'terraform apply'
+      }
+     }
+
     }
   }
 }
