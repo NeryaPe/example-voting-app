@@ -1,29 +1,21 @@
 pipeline {
 
-  
-  environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
+   agent {
+    label 'gcloud'
   }
 
+ environment {
+    TF_WORKDIR = "${env.WORKSPACE}/learn-terraform-provision-gke-cluster" //Sets the Terraform Workspace
+    TF_IN_AUTOMATION = 'true'
+  }
 
-    stage('terraform init') {
-     stage('terraform cd') {
+  stages {
+    stage('Terraform Init') {
       steps {
-        sh 'cd learn-terraform-provision-gke-cluster/'
+        sh "terraform -chdir=${env.TF_WORKDIR} init -input=false"
       }
-     }
-     stage('terraform init') {
-      steps {
-        sh 'terraform init'
-      }
-     }
-
-     stage('terraform init') {
-      steps {
-        sh 'terraform apply'
-      }
-     }
-
     }
+
+    
   }
 }
