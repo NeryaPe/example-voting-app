@@ -40,14 +40,14 @@ pipeline {
             }
         }
 
-        stage('kubectl get nodes') {
+       /* stage('kubectl get nodes') {
             steps {
                 script {
                     sh "kubectl get nodes -o wide"
                     sh "kubectl get pods -l release=my-prom"
                 }
             }
-        }
+        }*/
 
        }
     }
