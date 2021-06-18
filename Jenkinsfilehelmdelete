@@ -20,12 +20,6 @@ pipeline {
                 sh "gcloud container clusters get-credentials ${params.GCP_CLUSTER_NAME} --region ${params.GCP_REGION_NAME} --project ${params.GCP_PROJECT_NAME}"
             }
         }
-
-        stage('delete namespace vote') {
-            steps {
-               sh "kubectl delete namespace vote"
-            }
-        }
         
         stage('Helm delete vote') {
             steps {
@@ -33,7 +27,11 @@ pipeline {
             }
         }
 
-
+        stage('delete namespace vote') {
+            steps {
+               sh "kubectl delete namespace vote"
+            }
+        }
 
         stage('gcloud delete firewall-rules') {
             steps {
