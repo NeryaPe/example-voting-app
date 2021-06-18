@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build result') {
       steps {
-        sh 'docker build -t dockersamples/result ./result'
+        sh "docker build -t neryap/result:${params.BUILD_ID} ./result"
       }
     } 
     stage('Build vote') {
@@ -23,12 +23,12 @@ pipeline {
       }
     }
     stage('Push result image') {
-      when {
+     /* when {
         branch 'master'
-      }
+      }*/
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/result'
+          sh "docker push neryap/result:${params.BUILD_ID}"
         }
       }
     }
