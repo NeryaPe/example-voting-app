@@ -14,7 +14,7 @@ pipeline {
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t neryap/vote:${params.BUILD_ID} ./vote'
+        sh "docker build -t neryap/vote:${params.BUILD_ID} ./vote"
       }
     }
     stage('Build worker') {
