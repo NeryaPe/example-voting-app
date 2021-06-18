@@ -12,7 +12,7 @@ def createNamespace (namespace) {
 
 pipeline {
     agent {
-        label 'BUILD_AGENT'
+       label 'gcloud'
     }
   
     parameters {
