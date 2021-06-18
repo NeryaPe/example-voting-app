@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Build worker') {
       steps {
-        sh 'docker build -t dockersamples/worker ./worker'
+        sh "docker build -t neryap/worker:${params.BUILD_ID} ./worker"
       }
     }
     stage('Push result image') {
@@ -48,7 +48,7 @@ pipeline {
       }
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/worker'
+          sh "docker push neryap/worker:${params.BUILD_ID}"
         }
       }
     }
