@@ -27,6 +27,13 @@ pipeline {
             }
         }
 
+        stage('delete namespace vote') {
+            steps {
+               sh "kubectl delete namespace vote"
+            }
+        }
+        
+
         stage('gcloud delete firewall-rules') {
             steps {
                 sh "gcloud compute firewall-rules delete node-port-${params.VOTE_PORT}"
