@@ -43,9 +43,9 @@ pipeline {
       }
     }
     stage('Push worker image') {
-      when {
+     /* when {
         branch 'master'
-      }
+      }*/
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
           sh "docker push neryap/worker:${params.BUILD_ID}"
