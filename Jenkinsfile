@@ -1,6 +1,10 @@
 pipeline {
  agent any
  
+     parameters {
+              string(name: 'BUILD_ID', defaultValue: '0.4', description: 'Build Id')
+    }
+
   stages {
 
     stage('Build result') {
@@ -10,7 +14,7 @@ pipeline {
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t neryap/vote:0.4 ./vote'
+        sh 'docker build -t neryap/vote:${params.BUILD_ID} ./vote'
       }
     }
     stage('Build worker') {
