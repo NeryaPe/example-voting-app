@@ -15,5 +15,5 @@ pipeline {
         sh "terraform -chdir=${env.TF_WORKDIR} destroy -input=false"
       }
     }
-
+  }
 }
