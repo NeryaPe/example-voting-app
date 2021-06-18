@@ -23,7 +23,7 @@ pipeline {
 
         stage('Helm delete vote') {
             steps {
-               sh "helm delete ${params.HELM_NAME}"
+               sh "/snap/bin/helm delete ${params.HELM_NAME}"
             }
         }
 
