@@ -34,17 +34,6 @@ pipeline {
             }
         }
 
-        stage('helm delete prometheus') {
-            steps {
-                sh "helm delete my-prom"
-            }
-        }
-
-        stage('helm delete grafana') {
-            steps {
-                sh "helm delete my-grafana"
-            }
-        }
 
     }
 }
