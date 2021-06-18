@@ -6,9 +6,9 @@ pipeline {
     }
   
     parameters {
-              string(name: 'HELM_NAME', defaultValue: 'vote-helm', description: 'The Helm name')
+              string(name: 'HELM_NAME', defaultValue: 'my-vote', description: 'The Helm name')
               string(name: 'HELM_DIR_NAME', defaultValue: 'vote-helm', description: 'The Helm directory name')
-              string(name: 'VALUES_FILE_NAME', defaultValue: 'values.yaml', description: 'The Helm values file name')
+              string(name: 'VALUES_FILE_NAME', defaultValue: 'values-out.yaml', description: 'The Helm values file name')
               string(name: 'GCP_CLUSTER_NAME', defaultValue: 'stellar-verve-310120-gke', description: 'The GCP cluster name')
               string(name: 'GCP_PROJECT_NAME', defaultValue: 'stellar-verve-310120', description: 'The GCP project name')
               string(name: 'GCP_REGION_NAME', defaultValue: 'us-central1', description: 'The GCP region name')
