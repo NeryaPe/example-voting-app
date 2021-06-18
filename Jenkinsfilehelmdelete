@@ -21,18 +21,19 @@ pipeline {
             }
         }
 
-        stage('Helm delete vote') {
-            steps {
-               sh "/snap/bin/helm delete ${params.HELM_NAME}"
-            }
-        }
-
         stage('delete namespace vote') {
             steps {
                sh "kubectl delete namespace vote"
             }
         }
         
+        stage('Helm delete vote') {
+            steps {
+               sh "/snap/bin/helm delete ${params.HELM_NAME}"
+            }
+        }
+
+
 
         stage('gcloud delete firewall-rules') {
             steps {
