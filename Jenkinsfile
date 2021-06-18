@@ -38,7 +38,7 @@ pipeline {
       }*/
       steps {
         withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push neryap/vote:0.4'
+          sh "docker push neryap/vote:${params.BUILD_ID}"
         }
       }
     }
