@@ -1,0 +1,20 @@
+image_vote:
+  repository: neryap/vote
+  pullPolicy: "IfNotPresent"
+  port: 5000
+  targetPort: 80
+  nodePort: 31000
+  replicas: 1
+  tag: "0.4"
+
+image_result:
+  repository: dockersamples/examplevotingapp_result
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "before"
+
+image_worker:
+  repository: dockersamples/examplevotingapp_worker
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "before"
